@@ -1,5 +1,5 @@
 param(
-    $TextFile,
+    $TextFile = "",
     $Subject,
     $Content = "",
     $Sender = "",
@@ -7,6 +7,10 @@ param(
     $BatchSize = 10
 )
 
+if ($TextFile -eq "")
+{
+    $c = (Get-Clipboard)
+}
 $c = (Get-Content $TextFile -Raw)
 $adrList = [regex]::Matches($c, "([@-zA-Z0-9._-]+@[a-zA-Z0-9._-]+\.[a-zA-Z]+)", [System.Text.RegularExpressions.RegexOptions]::Singleline).Value
 

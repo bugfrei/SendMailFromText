@@ -1,12 +1,19 @@
 param(
-    $TextFile,
+    $TextFile = "",
     $Subject,
     $Content = "",
     $Sender = "",
     $Attachment
 )
 
-$c = (Get-Content $TextFile -Raw)
+if ($TextFile -eq "")
+{
+    $c = (Get-Clipboard)
+}
+else
+{
+    $c = (Get-Content $TextFile -Raw)
+}
 $adrList = [regex]::Matches($c, "([@-zA-Z0-9._-]+@[a-zA-Z0-9._-]+\.[a-zA-Z]+)", [System.Text.RegularExpressions.RegexOptions]::Singleline).Value
 
 $att = (Get-Item $Attachment).FullName
