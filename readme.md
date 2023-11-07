@@ -10,12 +10,14 @@ All Script has the same parameters, but `batch.ps1` has the `-BatchSize` Paramet
 
 ## Parameters
 
-- `-TextFile`: File with E-Mail Adresses
+- `-TextFile`: File with E-Mail Adresses, Optional
 - `-Subject`: Subject Line
 - `-Content`: Mail-Content (Text); Optional
 - `-Attachment`: File-Path to the Attachment (only one!)
 - `-Sender`: Optional Parameter with the E-Mail Address of the sender
 - `-BatchSize`: (only in batch.ps1), Count of recipient per Mail, default 10.
+
+Without `-TextFile` Parameter the Text in the Clipboard was used.
 
 ## Usage
 
